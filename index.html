@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>FluxAIon - AI-Powered Freight Forwarding</title>
 
   <!-- Optional Google Font -->
@@ -14,7 +14,6 @@
   >
 
   <style>
-    /* Base color palette */
     :root {
       --primary-color: #00a38c;       /* Accent color */
       --dark-text-color: #141414;
@@ -29,16 +28,18 @@
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%; /* allow flex layout to fill screen */
+      height: 100%; /* Fill the viewport height */
+      overscroll-behavior: none; /* reduce bounce on modern browsers */
+      overscroll-behavior-x: none;
+      overscroll-behavior-y: none;
     }
     body {
       font-family: 'Inter', Arial, sans-serif;
       color: var(--medium-text-color);
       background-color: var(--section-bg-1);
       display: flex;
-      flex-direction: column;
+      flex-direction: column; /* for sticky footer */
       line-height: 1.6;
-      overscroll-behavior: none;  /* helps reduce bounce in some browsers */
     }
     a {
       text-decoration: none;
@@ -46,14 +47,14 @@
       cursor: pointer;
     }
 
-    /* Page-content wrapper: ensures footer stays at bottom */
+    /* Page-content wrapper: ensures footer is pushed to bottom */
     .page-content {
-      flex: 1;
+      flex: 1; /* grows to fill leftover space */
       display: flex;
       flex-direction: column;
     }
 
-    /* Reusable container for side padding & central alignment */
+    /* Container for side padding & central alignment */
     .container {
       width: 90%;
       max-width: 1200px;
@@ -87,7 +88,7 @@
       opacity: 0.8;
     }
 
-    /* Shared button styles */
+    /* Shared Button Styles */
     .btn {
       display: inline-block;
       padding: 0.85rem 1.6rem;
@@ -116,10 +117,10 @@
       background-color: #f3f3f3;
     }
 
-    /* HERO (white bg) */
+    /* HERO SECTION */
     .hero {
       background-color: var(--section-bg-1);
-      padding: 8rem 0; /* hero: 8rem for more length */
+      padding: 8rem 0; /* hero: 8rem for extra length */
       text-align: center;
     }
     .hero-badge {
@@ -154,10 +155,10 @@
       margin-top: 1rem;
     }
 
-    /* FEATURES (very light green) */
+    /* FEATURES SECTION */
     .features {
       background-color: var(--section-bg-2);
-      padding: 6rem 0;
+      padding: 6rem 0; /* all non-hero sections 6rem */
       text-align: center;
     }
     .features h2 {
@@ -197,7 +198,7 @@
       font-size: 1rem;
     }
 
-    /* BETA (white bg) */
+    /* BETA SECTION */
     .beta {
       background-color: var(--section-bg-1);
       padding: 6rem 0;
@@ -243,7 +244,7 @@
       background-color: #008873;
     }
 
-    /* VISION (very light green) */
+    /* VISION SECTION */
     .vision {
       background-color: var(--section-bg-2);
       padding: 6rem 0;
@@ -287,7 +288,7 @@
       font-size: 1rem;
     }
 
-    /* FOOTER (dark bg) */
+    /* FOOTER */
     footer {
       background-color: var(--footer-bg);
       color: #fff;
@@ -321,9 +322,8 @@
       color: #cccccc;
     }
 
-    /* Phone/Tablet Responsiveness */
+    /* Responsive Adjustments (Phone/Tablet) */
     @media (max-width: 768px) {
-      /* Make hero heading smaller */
       .hero h1 {
         font-size: 2.2rem;
       }
@@ -333,11 +333,10 @@
       .vision p {
         font-size: 1rem;
       }
-      /* Make hero buttons narrower */
       .hero-buttons .btn {
         padding: 0.6rem 1.2rem;
         font-size: 0.9rem;
-        min-width: 140px;
+        min-width: 140px; /* smaller on mobile */
       }
       .feature-card,
       .vision-item {
@@ -347,18 +346,19 @@
   </style>
 
   <script>
-    /* Smooth Scroll (no # in URL) */
+    /* Smooth Scroll (no # in the URL) */
     function scrollToSection(sectionId) {
       const target = document.getElementById(sectionId);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
-        // Remove any hash from the URL
+        // Remove any hash from the URL, if it was appended
         history.pushState("", document.title, window.location.pathname + window.location.search);
       }
     }
   </script>
 </head>
 <body>
+
   <!-- NAVIGATION -->
   <nav>
     <div class="container nav-inner">
@@ -370,8 +370,9 @@
     </div>
   </nav>
 
-  <!-- Page Content Wrapper -->
+  <!-- PAGE CONTENT (pushes footer down) -->
   <div class="page-content">
+
     <!-- HERO SECTION -->
     <section class="hero">
       <div class="container">
@@ -382,6 +383,7 @@
           make freight forwarding faster, smarter, and more efficient.
         </p>
         <div class="hero-buttons">
+          <!-- No href; just onclick to smooth scroll without # in URL -->
           <a class="btn btn-primary" onclick="scrollToSection('beta')">Join our Beta Program</a>
           <a class="btn btn-secondary" onclick="scrollToSection('features')">Learn More</a>
         </div>
@@ -464,7 +466,8 @@
         </div>
       </div>
     </section>
-  </div>
+
+  </div> <!-- end .page-content -->
 
   <!-- FOOTER -->
   <footer>
@@ -488,6 +491,5 @@
       </div>
     </div>
   </footer>
-
 </body>
 </html>
