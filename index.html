@@ -29,11 +29,8 @@
       margin: 0;
       padding: 0;
       height: 100%; 
-      /* Hide horizontal overflow on mobile */
-      overflow-x: hidden;
-      
-      /* reduce vertical bounce in modern browsers */
-      overscroll-behavior: none; 
+      overflow-x: hidden;              /* prevent horizontal drag */
+      overscroll-behavior: none;       /* reduce bounce on modern browsers */
       overscroll-behavior-x: none;
       overscroll-behavior-y: none;
     }
@@ -102,7 +99,7 @@
       transition: background-color 0.3s, color 0.3s;
       border: 2px solid transparent;
       text-align: center;
-      min-width: 180px; /* ensures consistent width */
+      min-width: 180px; /* ensures consistent width on desktop */
     }
     .btn-primary {
       background-color: var(--primary-color);
@@ -155,10 +152,10 @@
     }
     .hero-buttons {
       display: flex;
-      justify-content: center; /* center horizontally */
-      flex-wrap: wrap;        /* allows buttons to wrap if needed */
+      justify-content: center; 
       gap: 1rem;
       margin-top: 1rem;
+      flex-wrap: wrap; /* if space is tight, wrap buttons */
     }
 
     /* FEATURES SECTION */
@@ -343,11 +340,15 @@
       .vision p {
         font-size: 1rem;
       }
-      /* Buttons smaller */
+      /* Let the buttons stack vertically with the SAME width */
+      .hero-buttons {
+        flex-direction: column;
+      }
       .hero-buttons .btn {
         padding: 0.6rem 1.2rem;
         font-size: 0.9rem;
-        min-width: 140px;
+        width: 220px;      /* same fixed width for both */
+        max-width: 90%;    /* ensure it doesn’t overflow on very narrow devices */
       }
       .feature-card,
       .vision-item {
