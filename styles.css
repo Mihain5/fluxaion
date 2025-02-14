@@ -83,7 +83,7 @@ nav {
   transition: background-color 0.3s, color 0.3s;
   border: 2px solid transparent;
   text-align: center;
-  min-width: 180px; /* ensures consistent width on larger screens */
+  min-width: 180px; /* ensures consistent width on desktop */
 }
 .btn-primary {
   background-color: var(--primary-color);
@@ -96,7 +96,7 @@ nav {
 .btn-secondary {
   background-color: #ffffff;
   color: var(--primary-color);
-  border-color: var(--primary-color); /* 2px border */
+  border-color: var(--primary-color); /* 2px border visible */
 }
 .btn-secondary:hover {
   background-color: #f3f3f3;
@@ -136,7 +136,8 @@ nav {
 }
 .hero-buttons {
   display: flex;
-  justify-content: center; 
+  justify-content: center; /* center horizontally on larger screens */
+  align-items: center;
   gap: 1rem;
   margin-top: 1rem;
   flex-wrap: wrap; 
@@ -326,7 +327,7 @@ footer {
   /* Stack the buttons with the same width, horizontally centered */
   .hero-buttons {
     flex-direction: column;
-    align-items: center; /* ensure they center horizontally in the column */
+    align-items: center; /* ensure they center horizontally in a column layout */
   }
   .hero-buttons .btn {
     padding: 0.6rem 1.2rem;
