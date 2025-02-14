@@ -161,7 +161,7 @@
       const target = document.getElementById(sectionId);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
-        // remove the hash from the URL
+        // Remove the hash from the URL
         history.pushState("", document.title, window.location.pathname + window.location.search);
       }
     }
