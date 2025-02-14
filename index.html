@@ -16,14 +16,13 @@
   <style>
     /* Base color palette */
     :root {
-      --primary-color: #00a38c;      /* Accent color */
+      --primary-color: #00a38c;       /* Accent color */
       --dark-text-color: #141414;
       --medium-text-color: #555;
       --light-text-color: #777;
-      --section-bg-1: #ffffff;       /* White */
-      --section-bg-2: #f9fbfd;       /* Soft pastel background */
-      --footer-bg: #1b1e22;          /* Dark footer background */
-      --divider-color: #e8ebed;      /* Subtle line between sections */
+      --section-bg-1: #ffffff;        /* White */
+      --section-bg-2: #f0fef8;        /* Very light green */
+      --footer-bg: #1b1e22;           /* Dark footer */
     }
 
     /* Reset & Global Defaults */
@@ -35,7 +34,7 @@
     body {
       font-family: 'Inter', Arial, sans-serif;
       color: var(--medium-text-color);
-      background-color: #ffffff;
+      background-color: var(--section-bg-1);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -45,24 +44,12 @@
       text-decoration: none;
       color: inherit;
     }
-    img {
-      max-width: 100%;
-      display: block;
-    }
-    
+
     /* Reusable container for side padding & central alignment */
     .container {
       width: 90%;
       max-width: 1200px;
       margin: 0 auto;
-    }
-
-    /* Subtle horizontal divider between sections */
-    .section-divider {
-      width: 100%;
-      height: 1px;
-      background-color: var(--divider-color);
-      margin: 0; /* We handle spacing with section padding instead */
     }
 
     /* NAVIGATION */
@@ -92,10 +79,10 @@
       opacity: 0.8;
     }
 
-    /* HERO SECTION */
+    /* HERO SECTION (white bg) */
     .hero {
       background-color: var(--section-bg-1);
-      padding: 5rem 0 4rem 0; /* More top spacing for visual impact */
+      padding: 6rem 0; /* more top/bottom spacing */
       text-align: center;
     }
     .hero-badge {
@@ -154,10 +141,10 @@
       background-color: #f3f3f3;
     }
 
-    /* FEATURES SECTION */
+    /* FEATURES SECTION (very light green) */
     .features {
       background-color: var(--section-bg-2);
-      padding: 4rem 0;
+      padding: 5rem 0;
       text-align: center;
     }
     .features h2 {
@@ -197,10 +184,10 @@
       font-size: 1rem;
     }
 
-    /* BETA PROGRAM SECTION */
+    /* BETA PROGRAM SECTION (white bg) */
     .beta {
       background-color: var(--section-bg-1);
-      padding: 4rem 0;
+      padding: 5rem 0;
       text-align: center;
     }
     .beta h2 {
@@ -243,10 +230,10 @@
       background-color: #008873;
     }
 
-    /* VISION SECTION */
+    /* VISION SECTION (very light green) */
     .vision {
       background-color: var(--section-bg-2);
-      padding: 4rem 0;
+      padding: 5rem 0;
       text-align: center;
     }
     .vision h2 {
@@ -353,28 +340,31 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
+  <!-- HERO SECTION (white bg) -->
   <section class="hero">
     <div class="container">
       <div class="hero-badge">AI-Powered Freight Forwarding</div>
       <h1>The Future of Freight Forwarding <span>Powered by AI</span></h1>
-      <p>Revolutionizing the shipping industry with automated solutions that make freight forwarding 
-         faster, smarter, and more efficient.</p>
+      <p>
+        Revolutionizing the shipping industry with automated solutions that 
+        make freight forwarding faster, smarter, and more efficient.
+      </p>
       <div class="hero-buttons">
-        <a href="#" class="btn-primary">Join our Beta Program</a>
+        <!-- Anchor link jumps to #beta section -->
+        <a href="#beta" class="btn-primary">Join our Beta Program</a>
         <a href="#" class="btn-secondary">Learn More</a>
       </div>
     </div>
   </section>
 
-  <!-- Divider Between Sections -->
-  <div class="section-divider"></div>
-
-  <!-- FEATURES SECTION -->
+  <!-- FEATURES SECTION (very light green) -->
   <section class="features">
     <div class="container">
       <h2>Transforming Freight Forwarding</h2>
-      <p>Our AI-powered platform automates and optimizes every step of the freight forwarding process.</p>
+      <p>
+        Our AI-powered platform automates and optimizes every step 
+        of the freight forwarding process.
+      </p>
       <div class="feature-cards">
         <div class="feature-card">
           <h3>AI-Powered Customer Service</h3>
@@ -392,15 +382,15 @@
     </div>
   </section>
 
-  <!-- Divider Between Sections -->
-  <div class="section-divider"></div>
-
-  <!-- BETA PROGRAM SECTION -->
-  <section class="beta">
+  <!-- BETA PROGRAM SECTION (white bg) -->
+  <section class="beta" id="beta">
     <div class="container">
       <h2>Join Our Beta Program</h2>
-      <p>Be among the first to experience the future of freight forwarding. Our beta program
-         gives you early access to our AI-powered platform and helps shape its development.</p>
+      <p>
+        Be among the first to experience the future of freight forwarding. 
+        Our beta program gives you early access to our AI-powered platform 
+        and helps shape its development.
+      </p>
       <form class="beta-form">
         <input type="text" placeholder="Company Name" required />
         <input type="email" placeholder="Email Address" required />
@@ -410,32 +400,41 @@
     </div>
   </section>
 
-  <!-- Divider Between Sections -->
-  <div class="section-divider"></div>
-
-  <!-- VISION SECTION -->
+  <!-- VISION SECTION (very light green) -->
   <section class="vision">
     <div class="container">
       <h2>Our Vision for the Future</h2>
-      <p>We’re building more than just a platform — we’re creating the foundation for a new era in freight forwarding.</p>
+      <p>
+        We’re building more than just a platform — we’re creating 
+        the foundation for a new era in freight forwarding.
+      </p>
       <div class="vision-list">
         <div class="vision-item">
           <h4>Full AI Automation</h4>
-          <p>Developing an intelligent AI agent that handles all operations between customers and carriers.</p>
+          <p>
+            Developing an intelligent AI agent that handles all operations 
+            between customers and carriers.
+          </p>
         </div>
         <div class="vision-item">
           <h4>Industry Optimization</h4>
-          <p>Revolutionizing the freight forwarding industry by eliminating inefficiencies and reducing costs.</p>
+          <p>
+            Revolutionizing the freight forwarding industry by eliminating 
+            inefficiencies and reducing costs.
+          </p>
         </div>
         <div class="vision-item">
           <h4>Scalable Solution</h4>
-          <p>Building a solution that grows with the evolving demands of global logistics.</p>
+          <p>
+            Building a solution that grows with the evolving demands of 
+            global logistics.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (dark bg) -->
   <footer>
     <div class="container footer-content">
       <div class="footer-col">
