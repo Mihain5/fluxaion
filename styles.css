@@ -13,7 +13,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%; 
-  overflow-x: hidden;              /* prevent horizontal drag */
+  overflow-x: hidden;              /* prevent horizontal drag on mobile */
   overscroll-behavior: none;       /* reduce bounce on modern browsers */
   overscroll-behavior-x: none;
   overscroll-behavior-y: none;
@@ -83,7 +83,7 @@ nav {
   transition: background-color 0.3s, color 0.3s;
   border: 2px solid transparent;
   text-align: center;
-  min-width: 180px; /* ensures consistent width on desktop */
+  min-width: 180px; /* ensures consistent width on larger screens */
 }
 .btn-primary {
   background-color: var(--primary-color);
@@ -96,7 +96,7 @@ nav {
 .btn-secondary {
   background-color: #ffffff;
   color: var(--primary-color);
-  border-color: var(--primary-color); /* 2px border visible */
+  border-color: var(--primary-color); /* 2px border */
 }
 .btn-secondary:hover {
   background-color: #f3f3f3;
@@ -139,7 +139,7 @@ nav {
   justify-content: center; 
   gap: 1rem;
   margin-top: 1rem;
-  flex-wrap: wrap; /* if space is tight, wrap buttons */
+  flex-wrap: wrap; 
 }
 
 /* FEATURES SECTION */
@@ -323,9 +323,10 @@ footer {
   .vision p {
     font-size: 1rem;
   }
-  /* Buttons stack with the same width */
+  /* Stack the buttons with the same width, horizontally centered */
   .hero-buttons {
     flex-direction: column;
+    align-items: center; /* ensure they center horizontally in the column */
   }
   .hero-buttons .btn {
     padding: 0.6rem 1.2rem;
