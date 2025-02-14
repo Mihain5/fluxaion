@@ -12,7 +12,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
     rel="stylesheet"
   >
-  
+
   <style>
     /* Base color palette */
     :root {
@@ -26,10 +26,10 @@
     }
 
     /* Reset & Global Defaults */
-    * {
+    html, body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      height: 100%; /* allow flex layout to fill screen */
     }
     body {
       font-family: 'Inter', Arial, sans-serif;
@@ -37,8 +37,8 @@
       background-color: var(--section-bg-1);
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
       line-height: 1.6;
+      overscroll-behavior: none;  /* helps reduce bounce in some browsers */
     }
     a {
       text-decoration: none;
@@ -46,7 +46,14 @@
       cursor: pointer;
     }
 
-    /* Container for side padding & central alignment */
+    /* Page-content wrapper: ensures footer stays at bottom */
+    .page-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Reusable container for side padding & central alignment */
     .container {
       width: 90%;
       max-width: 1200px;
@@ -80,10 +87,39 @@
       opacity: 0.8;
     }
 
+    /* Shared button styles */
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 1.6rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background-color 0.3s, color 0.3s;
+      border: 2px solid transparent;
+      text-align: center;
+      min-width: 180px; /* ensures a consistent button width */
+    }
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: #fff;
+      border-color: var(--primary-color);
+    }
+    .btn-primary:hover {
+      background-color: #008873;
+    }
+    .btn-secondary {
+      background-color: #ffffff;
+      color: var(--primary-color);
+      border-color: var(--primary-color); /* 2px border visible */
+    }
+    .btn-secondary:hover {
+      background-color: #f3f3f3;
+    }
+
     /* HERO (white bg) */
     .hero {
       background-color: var(--section-bg-1);
-      padding: 8rem 0; /* hero: 8rem */
+      padding: 8rem 0; /* hero: 8rem for more length */
       text-align: center;
     }
     .hero-badge {
@@ -117,37 +153,11 @@
       gap: 1rem;
       margin-top: 1rem;
     }
-    .hero-buttons a {
-      display: inline-block;
-      padding: 0.85rem 1.6rem;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: background-color 0.3s, color 0.3s;
-      border: 2px solid transparent; /* default border style */
-    }
-    /* “Join Beta” */
-    .btn-primary {
-      background-color: var(--primary-color);
-      color: #fff;
-    }
-    .btn-primary:hover {
-      background-color: #008873;
-    }
-    /* “Learn More” */
-    .btn-secondary {
-      background-color: #ffffff;
-      color: var(--primary-color);
-      border: 2px solid var(--primary-color);
-    }
-    .btn-secondary:hover {
-      background-color: #f3f3f3;
-    }
 
     /* FEATURES (very light green) */
     .features {
       background-color: var(--section-bg-2);
-      padding: 6rem 0; /* others: 6rem */
+      padding: 6rem 0;
       text-align: center;
     }
     .features h2 {
@@ -282,7 +292,6 @@
       background-color: var(--footer-bg);
       color: #fff;
       padding: 3rem 0;
-      margin-top: auto;
     }
     .footer-content {
       display: grid;
@@ -325,10 +334,10 @@
         font-size: 1rem;
       }
       /* Make hero buttons narrower */
-      .hero-buttons a {
+      .hero-buttons .btn {
         padding: 0.6rem 1.2rem;
         font-size: 0.9rem;
-        max-width: 200px; /* so they don't expand too wide */
+        min-width: 140px;
       }
       .feature-card,
       .vision-item {
@@ -336,23 +345,20 @@
       }
     }
   </style>
-</head>
-<body>
 
-  <!-- Smooth Scroll Script (no # in URL) -->
   <script>
-    // Generic function to smoothly scroll to an element by ID,
-    // then remove any hash from the URL using History API.
+    /* Smooth Scroll (no # in URL) */
     function scrollToSection(sectionId) {
       const target = document.getElementById(sectionId);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
-        // Remove the hash (e.g. #beta) from the URL without reloading
+        // Remove any hash from the URL
         history.pushState("", document.title, window.location.pathname + window.location.search);
       }
     }
   </script>
-
+</head>
+<body>
   <!-- NAVIGATION -->
   <nav>
     <div class="container nav-inner">
@@ -364,102 +370,101 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-badge">AI-Powered Freight Forwarding</div>
-      <h1>The Future of Freight Forwarding <span>Powered by AI</span></h1>
-      <p>
-        Revolutionizing the shipping industry with automated solutions that 
-        make freight forwarding faster, smarter, and more efficient.
-      </p>
-      <div class="hero-buttons">
-        <!-- 
-          Instead of href="#beta", we call scrollToSection('beta').
-          This prevents the URL from showing #beta 
-        -->
-        <a class="btn-primary" onclick="scrollToSection('beta')">Join our Beta Program</a>
-        <a class="btn-secondary" onclick="scrollToSection('features')">Learn More</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES SECTION -->
-  <section class="features" id="features">
-    <div class="container">
-      <h2>Transforming Freight Forwarding</h2>
-      <p>
-        Our AI-powered platform automates and optimizes every step 
-        of the freight forwarding process.
-      </p>
-      <div class="feature-cards">
-        <div class="feature-card">
-          <h3>AI-Powered Customer Service</h3>
-          <p>Automated customer interactions with real-time response and analysis capabilities.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Automated Decision Making</h3>
-          <p>Data-driven decisions for pricing, routing, and carrier selection.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Intelligent Communication</h3>
-          <p>Automated text analysis and communication with transport providers.</p>
+  <!-- Page Content Wrapper -->
+  <div class="page-content">
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badge">AI-Powered Freight Forwarding</div>
+        <h1>The Future of Freight Forwarding <span>Powered by AI</span></h1>
+        <p>
+          Revolutionizing the shipping industry with automated solutions that 
+          make freight forwarding faster, smarter, and more efficient.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" onclick="scrollToSection('beta')">Join our Beta Program</a>
+          <a class="btn btn-secondary" onclick="scrollToSection('features')">Learn More</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- BETA SECTION -->
-  <section class="beta" id="beta">
-    <div class="container">
-      <h2>Join Our Beta Program</h2>
-      <p>
-        Be among the first to experience the future of freight forwarding. 
-        Our beta program gives you early access to our AI-powered platform 
-        and helps shape its development.
-      </p>
-      <form class="beta-form">
-        <input type="text" placeholder="Company Name" required />
-        <input type="email" placeholder="Email Address" required />
-        <input type="text" placeholder="Phone Number" required />
-        <button type="submit">Sign Up for Beta Access</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- VISION SECTION -->
-  <section class="vision">
-    <div class="container">
-      <h2>Our Vision for the Future</h2>
-      <p>
-        We’re building more than just a platform — we’re creating 
-        the foundation for a new era in freight forwarding.
-      </p>
-      <div class="vision-list">
-        <div class="vision-item">
-          <h4>Full AI Automation</h4>
-          <p>
-            Developing an intelligent AI agent that handles all operations 
-            between customers and carriers.
-          </p>
-        </div>
-        <div class="vision-item">
-          <h4>Industry Optimization</h4>
-          <p>
-            Revolutionizing the freight forwarding industry by eliminating 
-            inefficiencies and reducing costs.
-          </p>
-        </div>
-        <div class="vision-item">
-          <h4>Scalable Solution</h4>
-          <p>
-            Building a solution that grows with the evolving demands of 
-            global logistics.
-          </p>
+    <!-- FEATURES SECTION -->
+    <section class="features" id="features">
+      <div class="container">
+        <h2>Transforming Freight Forwarding</h2>
+        <p>
+          Our AI-powered platform automates and optimizes every step 
+          of the freight forwarding process.
+        </p>
+        <div class="feature-cards">
+          <div class="feature-card">
+            <h3>AI-Powered Customer Service</h3>
+            <p>Automated customer interactions with real-time response and analysis capabilities.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Automated Decision Making</h3>
+            <p>Data-driven decisions for pricing, routing, and carrier selection.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Intelligent Communication</h3>
+            <p>Automated text analysis and communication with transport providers.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- BETA SECTION -->
+    <section class="beta" id="beta">
+      <div class="container">
+        <h2>Join Our Beta Program</h2>
+        <p>
+          Be among the first to experience the future of freight forwarding. 
+          Our beta program gives you early access to our AI-powered platform 
+          and helps shape its development.
+        </p>
+        <form class="beta-form">
+          <input type="text" placeholder="Company Name" required />
+          <input type="email" placeholder="Email Address" required />
+          <input type="text" placeholder="Phone Number" required />
+          <button type="submit">Sign Up for Beta Access</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- VISION SECTION -->
+    <section class="vision">
+      <div class="container">
+        <h2>Our Vision for the Future</h2>
+        <p>
+          We’re building more than just a platform — we’re creating 
+          the foundation for a new era in freight forwarding.
+        </p>
+        <div class="vision-list">
+          <div class="vision-item">
+            <h4>Full AI Automation</h4>
+            <p>
+              Developing an intelligent AI agent that handles all operations 
+              between customers and carriers.
+            </p>
+          </div>
+          <div class="vision-item">
+            <h4>Industry Optimization</h4>
+            <p>
+              Revolutionizing the freight forwarding industry by eliminating 
+              inefficiencies and reducing costs.
+            </p>
+          </div>
+          <div class="vision-item">
+            <h4>Scalable Solution</h4>
+            <p>
+              Building a solution that grows with the evolving demands of 
+              global logistics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <!-- FOOTER -->
   <footer>
@@ -483,5 +488,6 @@
       </div>
     </div>
   </footer>
+
 </body>
 </html>
