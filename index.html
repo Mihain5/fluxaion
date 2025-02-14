@@ -154,7 +154,9 @@
       color: var(--light-text-color);
     }
     .hero-buttons {
-      display: inline-flex;
+      display: flex;
+      justify-content: center; /* center horizontally */
+      flex-wrap: wrap;        /* allows buttons to wrap if needed */
       gap: 1rem;
       margin-top: 1rem;
     }
@@ -326,8 +328,12 @@
       color: #cccccc;
     }
 
-    /* Responsive Adjustments (Phone/Tablet) */
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
+      /* Smaller hero padding on phones */
+      .hero {
+        padding: 4rem 0; 
+      }
       .hero h1 {
         font-size: 2.2rem;
       }
@@ -337,6 +343,7 @@
       .vision p {
         font-size: 1rem;
       }
+      /* Buttons smaller */
       .hero-buttons .btn {
         padding: 0.6rem 1.2rem;
         font-size: 0.9rem;
@@ -495,5 +502,17 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    /* Smooth Scroll (no # in the URL) */
+    function scrollToSection(sectionId) {
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        // Remove any hash from the URL, if it was appended
+        history.pushState("", document.title, window.location.pathname + window.location.search);
+      }
+    }
+  </script>
 </body>
 </html>
