@@ -21,8 +21,7 @@
       --medium-text-color: #555;
       --light-text-color: #777;
       --section-bg-1: #ffffff;        /* White */
-      /* Even lighter green – nearly transparent */
-      --section-bg-2: #fbfffc;        
+      --section-bg-2: #fbfffc;        /* Very light green */
       --footer-bg: #1b1e22;           /* Dark footer */
     }
 
@@ -83,7 +82,7 @@
     /* HERO SECTION (white bg) */
     .hero {
       background-color: var(--section-bg-1);
-      padding: 8rem 0; /* increased for more length */
+      padding: 8rem 0; /* hero stays at 8rem for more length */
       text-align: center;
     }
     .hero-badge {
@@ -124,7 +123,7 @@
       font-weight: 600;
       transition: background-color 0.3s, color 0.3s;
       font-size: 1rem;
-      border: 2px solid transparent;
+      border: 2px solid transparent; /* base border style */
     }
     .btn-primary {
       background-color: var(--primary-color);
@@ -136,7 +135,7 @@
     .btn-secondary {
       background-color: #ffffff;
       color: var(--primary-color);
-      border-color: var(--primary-color);
+      border: 2px solid var(--primary-color); /* explicit 2px border */
     }
     .btn-secondary:hover {
       background-color: #f3f3f3;
@@ -145,7 +144,7 @@
     /* FEATURES SECTION (very light green) */
     .features {
       background-color: var(--section-bg-2);
-      padding: 8rem 0; /* increased for more length */
+      padding: 6rem 0; /* 6rem for all non-hero sections */
       text-align: center;
     }
     .features h2 {
@@ -188,7 +187,7 @@
     /* BETA PROGRAM SECTION (white bg) */
     .beta {
       background-color: var(--section-bg-1);
-      padding: 8rem 0; /* increased for more length */
+      padding: 6rem 0; /* 6rem for other sections */
       text-align: center;
     }
     .beta h2 {
@@ -234,7 +233,7 @@
     /* VISION SECTION (very light green) */
     .vision {
       background-color: var(--section-bg-2);
-      padding: 8rem 0; /* increased for more length */
+      padding: 6rem 0; /* 6rem for other sections */
       text-align: center;
     }
     .vision h2 {
@@ -310,20 +309,28 @@
       color: #cccccc;
     }
 
-    /* RESPONSIVENESS */
+    /* Remove Quick Links column entirely */
+    /* If you previously had a 4th column for Quick Links, just remove it. */
+
+    /* RESPONSIVENESS (reduce button size for phones) */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 2.2rem;
-      }
-      .feature-card,
-      .vision-item {
-        text-align: center;
       }
       .hero p,
       .features p,
       .beta p,
       .vision p {
         font-size: 1rem;
+      }
+      /* Make hero buttons smaller on phones */
+      .hero-buttons a {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+      .feature-card,
+      .vision-item {
+        text-align: center;
       }
     }
   </style>
@@ -455,12 +462,7 @@
         <p><a href="#">LinkedIn: FluxAIon</a></p>
         <p><a href="#">Twitter: @FluxAIon</a></p>
       </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <p><a href="#">About</a></p>
-        <p><a href="#">Careers</a></p>
-        <p><a href="#">Support</a></p>
-      </div>
+      <!-- Quick Links removed -->
     </div>
   </footer>
 </body>
