@@ -28,8 +28,12 @@
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%; /* Fill the viewport height */
-      overscroll-behavior: none; /* reduce bounce on modern browsers */
+      height: 100%; 
+      /* Hide horizontal overflow on mobile */
+      overflow-x: hidden;
+      
+      /* reduce vertical bounce in modern browsers */
+      overscroll-behavior: none; 
       overscroll-behavior-x: none;
       overscroll-behavior-y: none;
     }
@@ -49,7 +53,7 @@
 
     /* Page-content wrapper: ensures footer is pushed to bottom */
     .page-content {
-      flex: 1; /* grows to fill leftover space */
+      flex: 1;
       display: flex;
       flex-direction: column;
     }
@@ -98,7 +102,7 @@
       transition: background-color 0.3s, color 0.3s;
       border: 2px solid transparent;
       text-align: center;
-      min-width: 180px; /* ensures a consistent button width */
+      min-width: 180px; /* ensures consistent width */
     }
     .btn-primary {
       background-color: var(--primary-color);
@@ -120,7 +124,7 @@
     /* HERO SECTION */
     .hero {
       background-color: var(--section-bg-1);
-      padding: 8rem 0; /* hero: 8rem for extra length */
+      padding: 8rem 0; 
       text-align: center;
     }
     .hero-badge {
@@ -158,7 +162,7 @@
     /* FEATURES SECTION */
     .features {
       background-color: var(--section-bg-2);
-      padding: 6rem 0; /* all non-hero sections 6rem */
+      padding: 6rem 0; 
       text-align: center;
     }
     .features h2 {
@@ -336,7 +340,7 @@
       .hero-buttons .btn {
         padding: 0.6rem 1.2rem;
         font-size: 0.9rem;
-        min-width: 140px; /* smaller on mobile */
+        min-width: 140px;
       }
       .feature-card,
       .vision-item {
