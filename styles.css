@@ -13,8 +13,8 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%; 
-  overflow-x: hidden;              /* prevent horizontal drag on mobile */
-  overscroll-behavior: none;       /* reduce bounce on modern browsers */
+  overflow-x: hidden;
+  overscroll-behavior: none;
   overscroll-behavior-x: none;
   overscroll-behavior-y: none;
 }
@@ -23,7 +23,7 @@ body {
   color: var(--medium-text-color);
   background-color: var(--section-bg-1);
   display: flex;
-  flex-direction: column; /* for sticky footer */
+  flex-direction: column;
   line-height: 1.6;
 }
 a {
@@ -32,21 +32,21 @@ a {
   cursor: pointer;
 }
 
-/* Page-content wrapper: ensures footer is pushed to bottom */
+/* Page-content wrapper: ensures footer is at bottom */
 .page-content {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* Container for side padding & central alignment */
+/* Container */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* NAVIGATION */
+/* NAV */
 nav {
   width: 100%;
   background-color: var(--section-bg-1);
@@ -73,7 +73,7 @@ nav {
   opacity: 0.8;
 }
 
-/* Shared Button Styles */
+/* Buttons */
 .btn {
   display: inline-block;
   padding: 0.85rem 1.6rem;
@@ -96,13 +96,13 @@ nav {
 .btn-secondary {
   background-color: #ffffff;
   color: var(--primary-color);
-  border-color: var(--primary-color); /* 2px border visible */
+  border-color: var(--primary-color);
 }
 .btn-secondary:hover {
   background-color: #f3f3f3;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
   background-color: var(--section-bg-1);
   padding: 8rem 0; 
@@ -136,14 +136,14 @@ nav {
 }
 .hero-buttons {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   gap: 1rem;
   margin-top: 1rem;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 }
 
-/* FEATURES SECTION */
+/* FEATURES */
 .features {
   background-color: var(--section-bg-2);
   padding: 6rem 0; 
@@ -186,7 +186,7 @@ nav {
   font-size: 1rem;
 }
 
-/* BETA SECTION */
+/* BETA */
 .beta {
   background-color: var(--section-bg-1);
   padding: 6rem 0;
@@ -211,15 +211,15 @@ nav {
   display: grid;
   gap: 1rem;
 }
-/* Match input and textarea styles */
+/* Input + textarea */
 .beta-form input,
 .beta-form textarea {
   padding: 0.9rem;
   font-size: 1rem;
   border: 1px solid #ddd;
   border-radius: 5px;
-  font-family: inherit; /* ensure same font as rest */
-  resize: vertical;     /* allow vertical resizing if user drags corner */
+  font-family: inherit;
+  resize: vertical; 
 }
 .beta-form button {
   padding: 0.9rem;
@@ -236,7 +236,7 @@ nav {
   background-color: #008873;
 }
 
-/* VISION SECTION */
+/* VISION */
 .vision {
   background-color: var(--section-bg-2);
   padding: 6rem 0;
@@ -255,8 +255,6 @@ nav {
   line-height: 1.6;
   font-size: 1.05rem;
 }
-.feature-cards {/* also used for Vision (side-by-side boxes) */}
-.feature-card {/* same styling used above for .vision items, unchanged. */}
 
 /* FOOTER */
 footer {
@@ -292,7 +290,7 @@ footer {
   color: #cccccc;
 }
 
-/* RESPONSIVE (mobile etc.) */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .hero {
     padding: 4rem 0; 
@@ -308,7 +306,7 @@ footer {
   }
   .hero-buttons {
     flex-direction: column;
-    align-items: center; /* center horizontally when stacked */
+    align-items: center;
   }
   .hero-buttons .btn {
     padding: 0.6rem 1.2rem;
