@@ -218,8 +218,8 @@ nav {
   font-size: 1rem;
   border: 1px solid #ddd;
   border-radius: 5px;
-  font-family: inherit;
-  resize: vertical; 
+  font-family: inherit; /* <- VIGTIGT: bruger samme font som body/html */
+  resize: vertical;
 }
 .beta-form button {
   padding: 0.9rem;
