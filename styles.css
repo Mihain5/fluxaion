@@ -83,7 +83,7 @@ nav {
   transition: background-color 0.3s, color 0.3s;
   border: 2px solid transparent;
   text-align: center;
-  min-width: 180px; /* ensures consistent width on desktop */
+  min-width: 180px;
 }
 .btn-primary {
   background-color: var(--primary-color);
@@ -136,7 +136,7 @@ nav {
 }
 .hero-buttons {
   display: flex;
-  justify-content: center; /* center horizontally on larger screens */
+  justify-content: center; 
   align-items: center;
   gap: 1rem;
   margin-top: 1rem;
@@ -211,11 +211,15 @@ nav {
   display: grid;
   gap: 1rem;
 }
-.beta-form input {
+/* Match input and textarea styles */
+.beta-form input,
+.beta-form textarea {
   padding: 0.9rem;
   font-size: 1rem;
   border: 1px solid #ddd;
   border-radius: 5px;
+  font-family: inherit; /* ensure same font as rest */
+  resize: vertical;     /* allow vertical resizing if user drags corner */
 }
 .beta-form button {
   padding: 0.9rem;
@@ -251,30 +255,8 @@ nav {
   line-height: 1.6;
   font-size: 1.05rem;
 }
-.vision-list {
-  max-width: 700px;
-  margin: 0 auto;
-  display: grid;
-  gap: 1.5rem;
-}
-.vision-item {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  text-align: left;
-}
-.vision-item h4 {
-  margin-bottom: 0.75rem;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--dark-text-color);
-}
-.vision-item p {
-  line-height: 1.6;
-  color: var(--medium-text-color);
-  font-size: 1rem;
-}
+.feature-cards {/* also used for Vision (side-by-side boxes) */}
+.feature-card {/* same styling used above for .vision items, unchanged. */}
 
 /* FOOTER */
 footer {
@@ -310,7 +292,7 @@ footer {
   color: #cccccc;
 }
 
-/* RESPONSIVE: Mobile, etc. */
+/* RESPONSIVE (mobile etc.) */
 @media (max-width: 768px) {
   .hero {
     padding: 4rem 0; 
@@ -324,10 +306,9 @@ footer {
   .vision p {
     font-size: 1rem;
   }
-  /* Stack the buttons with the same width, horizontally centered */
   .hero-buttons {
     flex-direction: column;
-    align-items: center; /* ensure they center horizontally in a column layout */
+    align-items: center; /* center horizontally when stacked */
   }
   .hero-buttons .btn {
     padding: 0.6rem 1.2rem;
@@ -335,8 +316,7 @@ footer {
     width: 220px; 
     max-width: 90%;
   }
-  .feature-card,
-  .vision-item {
+  .feature-card {
     text-align: center;
   }
 }
