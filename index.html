@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>FluxAIon - AI-Powered Freight Forwarding</title>
 
-  <!-- Link to the external CSS file (make sure styles.css is in the same folder) -->
+  <!-- Link to external CSS (ensure styles.css is in the same folder) -->
   <link rel="stylesheet" href="styles.css" />
 
   <!-- Optional Google Font -->
@@ -42,7 +42,6 @@
           that make freight forwarding faster, smarter, and more efficient.
         </p>
         <div class="hero-buttons">
-          <!-- Smooth scroll with no # in URL -->
           <a class="btn btn-primary" onclick="scrollToSection('beta')">
             Join our Beta Program
           </a>
@@ -97,28 +96,59 @@
           and helps shape its development.
         </p>
 
-        <!-- Mailto form: sends user’s default email client 
-             to miha@in5.solutions with a subject 
+        <!-- 
+          We use mailto: 
+          1) subject=Beta Program Signup
+          2) name, company, email are required
+          3) phone, “about” are optional
         -->
-        <form 
+        <form
           class="beta-form"
           action="mailto:miha@in5.solutions?subject=Beta%20Program%20Signup"
-          method="post"
+          method="POST"   <!-- or GET -->
           enctype="text/plain"
         >
-          <input type="text" name="company" placeholder="Company Name" required />
-          <input type="email" name="email" placeholder="Email Address" required />
-          <input type="text" name="phone" placeholder="Phone Number" required />
-          
-          <!-- New text area so they can write about themselves -->
+          <!-- 1) Your Name (required) -->
+          <input 
+            type="text" 
+            name="name" 
+            placeholder="Your Name" 
+            required 
+          />
+
+          <!-- 2) Company Name (required) -->
+          <input 
+            type="text" 
+            name="company" 
+            placeholder="Company Name" 
+            required 
+          />
+
+          <!-- 3) Email Address (required) -->
+          <input 
+            type="email" 
+            name="email" 
+            placeholder="Email Address" 
+            required 
+          />
+
+          <!-- 4) Phone Number (optional) -->
+          <input 
+            type="text" 
+            name="phone" 
+            placeholder="Phone Number (optional)"
+          />
+
+          <!-- 5) About / Problem they hope to solve (optional) -->
           <textarea 
             name="about" 
-            placeholder="Tell us about yourself..." 
+            placeholder="Tell us about yourself or what problem you hope to solve..."
             rows="4"
           ></textarea>
 
           <button type="submit">Sign Up for Beta Access</button>
         </form>
+
       </div>
     </section>
 
@@ -188,7 +218,7 @@
       const target = document.getElementById(sectionId);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
-        // Remove the hash from the URL
+        // remove the hash from the URL
         history.pushState("", document.title, window.location.pathname + window.location.search);
       }
     }
