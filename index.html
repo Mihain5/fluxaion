@@ -96,10 +96,27 @@
           Our beta program gives you early access to our AI-powered platform 
           and helps shape its development.
         </p>
-        <form class="beta-form">
-          <input type="text" placeholder="Company Name" required />
-          <input type="email" placeholder="Email Address" required />
-          <input type="text" placeholder="Phone Number" required />
+
+        <!-- Mailto form: sends user’s default email client 
+             to miha@in5.solutions with a subject 
+        -->
+        <form 
+          class="beta-form"
+          action="mailto:miha@in5.solutions?subject=Beta%20Program%20Signup"
+          method="post"
+          enctype="text/plain"
+        >
+          <input type="text" name="company" placeholder="Company Name" required />
+          <input type="email" name="email" placeholder="Email Address" required />
+          <input type="text" name="phone" placeholder="Phone Number" required />
+          
+          <!-- New text area so they can write about themselves -->
+          <textarea 
+            name="about" 
+            placeholder="Tell us about yourself..." 
+            rows="4"
+          ></textarea>
+
           <button type="submit">Sign Up for Beta Access</button>
         </form>
       </div>
@@ -113,8 +130,6 @@
           We’re building more than just a platform — we’re creating 
           the foundation for a new era in freight forwarding.
         </p>
-        <!-- Kun her er klasserne ændret fra vision-list / vision-item 
-             til feature-cards / feature-card -->
         <div class="feature-cards">
           <div class="feature-card">
             <h4>Full AI Automation</h4>
