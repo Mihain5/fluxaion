@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>FluxAIon - AI-Powered Freight Forwarding</title>
 
-  <!-- Link to external CSS (ensure styles.css is in the same folder) -->
+  <!-- Link til styles.css (samme mappe) -->
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Optional Google Font -->
+  <!-- Google Font (valgfrit) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link 
@@ -42,6 +42,7 @@
           that make freight forwarding faster, smarter, and more efficient.
         </p>
         <div class="hero-buttons">
+          <!-- Smooth scroll med no # i URL -->
           <a class="btn btn-primary" onclick="scrollToSection('beta')">
             Join our Beta Program
           </a>
@@ -96,23 +97,13 @@
           and helps shape its development.
         </p>
 
-        <!-- 
-          We use mailto: 
-          1) subject=Beta Program Signup
-          2) name, company, email are required
-          3) phone, “about” are optional
-        -->
-        <form
-          class="beta-form"
-          action="mailto:miha@in5.solutions?subject=Beta%20Program%20Signup"
-          method="POST"   <!-- or GET -->
-          enctype="text/plain"
-        >
+        <!-- VIGTIGT: Vi poster til send.php -->
+        <form class="beta-form" action="send.php" method="POST">
           <!-- 1) Your Name (required) -->
           <input 
             type="text" 
             name="name" 
-            placeholder="Your Name" 
+            placeholder="Your Name"
             required 
           />
 
@@ -120,7 +111,7 @@
           <input 
             type="text" 
             name="company" 
-            placeholder="Company Name" 
+            placeholder="Company Name"
             required 
           />
 
@@ -128,7 +119,7 @@
           <input 
             type="email" 
             name="email" 
-            placeholder="Email Address" 
+            placeholder="Email Address"
             required 
           />
 
@@ -140,15 +131,14 @@
           />
 
           <!-- 5) About / Problem they hope to solve (optional) -->
-          <textarea 
-            name="about" 
+          <textarea
+            name="about"
             placeholder="Tell us about yourself or what problem you hope to solve..."
             rows="4"
           ></textarea>
 
           <button type="submit">Sign Up for Beta Access</button>
         </form>
-
       </div>
     </section>
 
@@ -186,7 +176,7 @@
       </div>
     </section>
 
-  </div> <!-- end page-content -->
+  </div> <!-- end .page-content -->
 
   <!-- FOOTER -->
   <footer>
